@@ -91,8 +91,6 @@ class Reader
 
         if ($readingTransaction) $transactions[] = $currentTransaction;
 
-        var_dump($ofx->transactions());
-
         return $ofx;
     }
 }
