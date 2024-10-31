@@ -2,6 +2,7 @@
     "name": "joseflaviol/ofx-reader",
     "description": "PHP OFX reader",
     "type": "library",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "OFXReader\\": "src/",
@@ -10,5 +11,6 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^11"
-    }
+    },
+    "minimum-stability": "stable"
 }
