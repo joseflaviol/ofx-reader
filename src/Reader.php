@@ -9,12 +9,10 @@ use OFXReader\Exception\IncorrectFileExtensionException;
 class Reader
 {
     private string $filePath;
-    
+
     private function __construct(string $filePath)
     {
         $this->filePath = $filePath;
-
-        $this->processFile();
     }
 
     public static function read(string $filePath): OFX
