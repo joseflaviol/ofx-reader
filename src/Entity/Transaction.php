@@ -9,7 +9,7 @@ class Transaction implements JsonSerializable
 {
     private string $id;
     private string $tipo;
-    private string $date;
+    private DateTimeInterface $date;
     private string $value;
     private string $extraInformation;
 
@@ -35,12 +35,12 @@ class Transaction implements JsonSerializable
         $this->tipo = $tipo;
     }
 
-    public function getDate(): string
+    public function getDate(): DateTimeInterface
     {
         return $this->date;
     }
 
-    public function setDate(string $date): void
+    public function setDate(DateTimeInterface $date): void
     {
         $this->date = $date;
     }
