@@ -2,6 +2,7 @@
 
 namespace OFXReader;
 
+use DateTimeImmutable;
 use OFXReader\Entity\Transaction;
 use OFXReader\Exception\FileNotFoundException;
 use OFXReader\Exception\IncorrectFileExtensionException;
@@ -81,9 +82,11 @@ class Reader
                     '<STMTTRN>'  => $this->startTransaction($ofx, $readingTransaction, $currentTransaction),
                     '<FITID>'    => $currentTransaction->setId($innerContent),
                     '<TRNTYPE>'  => $currentTransaction->setTipo($innerContent),
-                    '<DTPOSTED>' => $currentTransaction->setDate($innerContent),
+                    '<DTPOSTED>' => $currentTransaction->setDate(new DateTimeImmutable(substr($innerContent, 0, 8))),
                     '<TRNAMT>'   => $currentTransaction->setValue($innerContent),
                     '<MEMO>'     => $currentTransaction->setExtraInformation($innerContent),
+                    '<DTSTART>'  => $ofx->setStartDate(new DateTimeImmutable($innerContent)),
+                    '<DTEND>'    => $ofx->setEndDate(new DateTimeImmutable($innerContent)),
                     default      => null
                 };
             }
