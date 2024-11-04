@@ -4,8 +4,9 @@ namespace OFXReader\Entity;
 
 use DateTimeInterface;
 use JsonSerializable;
+use OFXReader\Serializable;
 
-class Transaction implements JsonSerializable
+class Transaction extends Serializable
 {
     private string $id;
     private string $tipo;
@@ -63,19 +64,5 @@ class Transaction implements JsonSerializable
     public function setExtraInformation(string $extraInformation): void
     {
         $this->extraInformation = $extraInformation;
-    }
-
-    public function jsonSerialize(): array
-    {
-        return array_map(
-            function ($dado) {
-                if ($dado instanceof DateTimeInterface) {
-                    return $dado->format('Y-m-d');
-                }
-
-                return $dado;
-            },
-            get_object_vars($this)
-        );
     }
 }

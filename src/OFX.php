@@ -5,7 +5,7 @@ namespace OFXReader;
 use DateTimeInterface;
 use OFXReader\Entity\Transaction;
 
-class OFX
+class OFX extends Serializable
 {
     private DateTimeInterface $startDate;
     private DateTimeInterface $endDate;
