@@ -3,7 +3,6 @@
 namespace OFXReader\Entity;
 
 use DateTimeInterface;
-use JsonSerializable;
 use OFXReader\Serializable;
 
 class Transaction extends Serializable
