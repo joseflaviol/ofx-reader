@@ -85,8 +85,8 @@ class Reader
                     '<DTPOSTED>' => $currentTransaction->setDate(new DateTimeImmutable(substr($innerContent, 0, 8))),
                     '<TRNAMT>'   => $currentTransaction->setValue($innerContent),
                     '<MEMO>'     => $currentTransaction->setExtraInformation($innerContent),
-                    '<DTSTART>'  => $ofx->setStartDate(new DateTimeImmutable($innerContent)),
-                    '<DTEND>'    => $ofx->setEndDate(new DateTimeImmutable($innerContent)),
+                    '<DTSTART>'  => $ofx->setStartDate(new DateTimeImmutable(substr($innerContent, 0, 8))),
+                    '<DTEND>'    => $ofx->setEndDate(new DateTimeImmutable(substr($innerContent, 0, 8))),
                     default      => null
                 };
             }
