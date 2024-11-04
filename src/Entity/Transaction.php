@@ -7,11 +7,11 @@ use OFXReader\Serializable;
 
 class Transaction extends Serializable
 {
-    private string $id;
-    private string $tipo;
-    private DateTimeInterface $date;
-    private string $value;
-    private string $extraInformation;
+    protected string $id;
+    protected string $tipo;
+    protected DateTimeInterface $date;
+    protected string $value;
+    protected string $extraInformation;
 
     public function __construct() {}
 
