@@ -91,7 +91,7 @@ class Reader
                             'ISO-8859-1'
                         )
                     ),
-                    'NAME'       => $currentTransaction->setName(
+                    '<NAME>'       => $currentTransaction->setName(
                         mb_convert_encoding(
                             $innerContent,
                             'UTF-8',
