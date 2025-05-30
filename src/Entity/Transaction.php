@@ -7,11 +7,12 @@ use OFXReader\Serializable;
 
 class Transaction extends Serializable
 {
-    protected string $id;
-    protected string $tipo;
-    protected DateTimeInterface $date;
-    protected string $value;
-    protected string $extraInformation;
+    protected  string $id;
+    protected  string $tipo;
+    protected  DateTimeInterface $date;
+    protected  string $value;
+    protected  string $extraInformation;
+    protected ?string $name = null;
 
     public function __construct() {}
 
@@ -63,5 +64,15 @@ class Transaction extends Serializable
     public function setExtraInformation(string $extraInformation): void
     {
         $this->extraInformation = $extraInformation;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): void
+    {
+        $this->name = $name;
     }
 }

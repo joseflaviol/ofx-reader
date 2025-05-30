@@ -91,6 +91,13 @@ class Reader
                             'ISO-8859-1'
                         )
                     ),
+                    'NAME'       => $currentTransaction->setName(
+                        mb_convert_encoding(
+                            $innerContent,
+                            'UTF-8',
+                            'ISO-8859-1'
+                        )
+                    ),
                     '<DTSTART>'  => $ofx->setStartDate(new DateTimeImmutable(substr($innerContent, 0, 8))),
                     '<DTEND>'    => $ofx->setEndDate(new DateTimeImmutable(substr($innerContent, 0, 8))),
                     default      => null
