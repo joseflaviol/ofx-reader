@@ -5,11 +5,11 @@ namespace OFXReader;
 use DateTimeInterface;
 use OFXReader\Entity\Transaction;
 
-class OFX
+class OFX extends Serializable
 {
-    private DateTimeInterface $startDate;
-    private DateTimeInterface $endDate;
-    private array $transactions;
+    protected DateTimeInterface $startDate;
+    protected DateTimeInterface $endDate;
+    protected array $transactions;
 
     public function __construct()
     {

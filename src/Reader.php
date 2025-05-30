@@ -84,7 +84,20 @@ class Reader
                     '<TRNTYPE>'  => $currentTransaction->setTipo($innerContent),
                     '<DTPOSTED>' => $currentTransaction->setDate(new DateTimeImmutable(substr($innerContent, 0, 8))),
                     '<TRNAMT>'   => $currentTransaction->setValue($innerContent),
-                    '<MEMO>'     => $currentTransaction->setExtraInformation($innerContent),
+                    '<MEMO>'     => $currentTransaction->setExtraInformation(
+                        mb_convert_encoding(
+                            $innerContent,
+                            'UTF-8',
+                            'ISO-8859-1'
+                        )
+                    ),
+                    'NAME'       => $currentTransaction->setName(
+                        mb_convert_encoding(
+                            $innerContent,
+                            'UTF-8',
+                            'ISO-8859-1'
+                        )
+                    ),
                     '<DTSTART>'  => $ofx->setStartDate(new DateTimeImmutable(substr($innerContent, 0, 8))),
                     '<DTEND>'    => $ofx->setEndDate(new DateTimeImmutable(substr($innerContent, 0, 8))),
                     default      => null
