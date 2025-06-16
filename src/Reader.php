@@ -83,7 +83,9 @@ class Reader
                     '<FITID>'    => $currentTransaction->setId($innerContent),
                     '<TRNTYPE>'  => $currentTransaction->setTipo($innerContent),
                     '<DTPOSTED>' => $currentTransaction->setDate(new DateTimeImmutable(substr($innerContent, 0, 8))),
-                    '<TRNAMT>'   => $currentTransaction->setValue($innerContent),
+                    '<TRNAMT>'   => $currentTransaction->setValue(
+                        str_replace(",", ".", $innerContent)
+                    ),
                     '<MEMO>'     => $currentTransaction->setExtraInformation(
                         mb_convert_encoding(
                             $innerContent,
