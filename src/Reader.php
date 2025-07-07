@@ -107,7 +107,7 @@ class Reader
             }
         }
 
-        if ($readingTransaction) $transactions[] = $currentTransaction;
+        if ($readingTransaction) $ofx->addTransaction($currentTransaction);
 
         return $ofx;
     }
