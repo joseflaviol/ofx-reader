@@ -47,4 +47,9 @@ class OFX extends Serializable
     {
         return $this->transactions;
     }
+
+    public function setTransactions(array $transactions): void
+    {
+        $this->transactions = $transactions;
+    }
 }
